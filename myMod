@@ -1,0 +1,91 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.blocks.BlockBerryPlant;
+import com.chucky.myMod.blocks.BlockIcoOre;
+import com.chucky.myMod.items.ItemBerry;
+import com.chucky.myMod.items.ItemBerrySeed;
+import com.chucky.myMod.items.ItemIcoArmor;
+import com.chucky.myMod.items.ItemIcoAxe;
+import com.chucky.myMod.items.ItemModGeneric;
+import com.chucky.myMod.items.ItemIcoHoe;
+import com.chucky.myMod.items.ItemIcoOre;
+import com.chucky.myMod.items.ItemIcoPaxel;
+import com.chucky.myMod.items.ItemIcoPickaxe;
+import com.chucky.myMod.items.ItemIcoShovel;
+import com.chucky.myMod.items.ItemIcoSword;
+import com.chucky.myMod.items.ItemKey;
+import com.chucky.myMod.items.ItemMiniPick;
+
+import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.WeightedRandomChestContent;
+import net.minecraftforge.common.ChestGenHooks;
+import net.minecraftforge.common.DungeonHooks;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+import cpw.mods.fml.common.Mod;
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.SidedProxy;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
+
+@Mod(modid = myMod.MODID, version = myMod.VERSION)
+public class myMod {
+	// mod details
+	public static final String MODID = "chucky_mymod";
+	public static final String VERSION = "1.0";
+
+	// event handlers
+	ChuckyEventHandler handler = new ChuckyEventHandler();
+
+	@EventHandler
+	public void preInit(FMLPreInitializationEvent event) {
+		myModBlocks.loadBlockspre();
+		myModArmor.loadArmorpre();
+		myModTools.loadToolspre();
+		myModMiniPicks.loadMiniPickspre();
+		myModItems.loadItemspre();
+		myModMiniShovels.loadMiniShovelspre();
+		myModMiniAxes.loadMiniAxespre();
+		myModMacroTools.loadMacspre();
+
+		// event handlers
+		GameRegistry.registerWorldGenerator(handler, 0);
+
+		MinecraftForge.EVENT_BUS.register(handler);
+
+	}
+
+	@EventHandler
+	public void init(FMLInitializationEvent event) {
+
+		myModArmor.loadAmorin();
+		myModBlocks.loadBlocksin();
+		myModTools.loadToolsin();
+		myModMiniPicks.loadMiniPicksin();
+		myModItems.loadItemsin();
+		myModMiniShovels.loadMiniShovelsin();
+		myModMiniAxes.loadMiniAxesin();
+		myModMacroTools.loadMacsin();
+		
+		ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST,
+				new WeightedRandomChestContent(
+						new ItemStack(Blocks.cobblestone), 25, 50, 10));
+
+		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST,
+				new WeightedRandomChestContent(new ItemStack(Blocks.torch), 2,
+						25, 10));
+	}
+
+}
