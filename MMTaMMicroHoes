@@ -1,0 +1,70 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyHoe;
+import com.chucky.myMod.items.ItemChuckyPickaxe;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
+
+public class MMTaMMiniHoes {
+    //minipicks
+    public static Item woodminihoe;
+    public static Item stoneminihoe;
+    public static Item ironminihoe;
+    public static Item goldminihoe;
+    public static Item diamondminihoe;
+    public static Item icominihoe;
+    public static Item icosicminihoe;
+    public static Item likyminihoe;
+    
+    public static void loadMiniHoespre(){
+    	
+    	//minipicks
+    	woodminihoe = new ItemChuckyHoe(MMTaMTools.weakwood,  "woodminihoe");
+    	stoneminihoe = new ItemChuckyHoe(MMTaMTools.weakstone, "stoneminihoe");
+    	ironminihoe = new ItemChuckyHoe(MMTaMTools.weakiron, "ironminihoe");
+    	goldminihoe = new ItemChuckyHoe(MMTaMTools.weakgold, "goldminihoe");
+    	diamondminihoe = new ItemChuckyHoe(MMTaMTools.weakdiamond, "diamondminihoe");
+    	icominihoe = new ItemChuckyHoe(MMTaMTools.weakico, "icominihoe");
+    	icosicminihoe = new ItemChuckyHoe(MMTaMTools.weakicosic, "icosicminihoe");
+    	likyminihoe = new ItemChuckyHoe(MMTaMTools.weakliky, "likyniumminihoe");
+    	GameRegistry.registerItem(woodminihoe, "WoodenMiniHoe");
+    	GameRegistry.registerItem(stoneminihoe, "StoneMiniHoe");
+    	GameRegistry.registerItem(ironminihoe, "IronMiniHoe");
+    	GameRegistry.registerItem(goldminihoe, "GoldMiniHoe");
+    	GameRegistry.registerItem(diamondminihoe, "DiamondMiniHoe");
+    	GameRegistry.registerItem(icominihoe, "IcosiumMiniHoe");
+    	GameRegistry.registerItem(icosicminihoe, "IcosicMiniHoe");
+    	GameRegistry.registerItem(likyminihoe, "LikyniumMiniHoe");
+    }
+    
+	public static void loadMiniHoesin() {
+		GameRegistry.addShapedRecipe(new ItemStack(woodminihoe), "XX", "Y ", 'X',
+				MMTaMItems.plank, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(stoneminihoe), "XX", "Y ", 'X',
+				MMTaMItems.instone, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(ironminihoe), "XX", "Y ", 'X',
+				MMTaMItems.halfiron, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(goldminihoe), "XX", "Y ", 'X',
+				MMTaMItems.halfgold, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(diamondminihoe), "XX", "Y ", 'X',
+				MMTaMItems.halfdiamond, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(icominihoe), "XX", "Y ", 'X',
+				MMTaMItems.halfico, 'Y', Items.stick);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(icosicminihoe), "XX", "Y ", 'X',
+				MMTaMItems.halficosic, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(likyminihoe), "XX", "Y ", 'X',
+				MMTaMItems.halfliky, 'Y', MMTaMItems.icostick);
+    }
+}
