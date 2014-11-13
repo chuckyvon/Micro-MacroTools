@@ -1,0 +1,208 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyArmor;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+
+public class MMTaMArmor {
+    
+    
+    //armor
+    public static Item icohelmet;
+    public static Item icochest;
+    public static Item icoleggings;
+    public static Item icoboots;
+    public static Item icosichelmet;
+    public static Item icosicchest;
+    public static Item icosicleggings;
+    public static Item icosicboots;
+    public static Item likyhelmet;
+    public static Item likychest;
+    public static Item likyleggings;
+    public static Item likyboots;
+    
+    public static ArmorMaterial icosiuma = EnumHelper.addArmorMaterial("icoarmor", 20, new int[]{3, 7, 6, 3, }, 10);
+    public static ArmorMaterial icosica = EnumHelper.addArmorMaterial("icosic", 30, new int[]{4, 9, 8, 4}, 15);
+    static ArmorMaterial likyniuma = EnumHelper.addArmorMaterial("likynium", 40, new int[]{5, 10, 9, 6}, 25);
+    
+    
+    public static void loadArmorpre(){
+    	
+    	
+    	//armor
+    	icohelmet = new ItemChuckyArmor(icosiuma, 0, "icohelmet");
+    	icochest = new ItemChuckyArmor(icosiuma, 1, "icochestplate");
+    	icoleggings = new ItemChuckyArmor(icosiuma, 2, "icoleggings");
+    	icoboots = new ItemChuckyArmor(icosiuma, 3, "icoboots");
+    	GameRegistry.registerItem(icohelmet,  "IcoHelmet");
+    	GameRegistry.registerItem(icochest, "IcoChest");
+    	GameRegistry.registerItem(icoleggings, "IcoLeggings");
+    	GameRegistry.registerItem(icoboots, "IcoBoots");
+    	
+    	icosichelmet = new ItemChuckyArmor(icosica, 0, "icosichelmet");
+    	icosicchest = new ItemChuckyArmor(icosica, 1, "icosicchestplate");
+    	icosicleggings = new ItemChuckyArmor(icosica, 2, "icosicleggings");
+    	icosicboots = new ItemChuckyArmor(icosica, 3, "icosicboots");
+    	GameRegistry.registerItem(icosichelmet,  "IcosicHelmet");
+    	GameRegistry.registerItem(icosicchest, "IcosicChest");
+    	GameRegistry.registerItem(icosicleggings, "IcosicLeggings");
+    	GameRegistry.registerItem(icosicboots, "IcosicBoots");
+    	
+    	likyhelmet = new ItemChuckyArmor(likyniuma, 0, "likyhelmet");
+    	likychest = new ItemChuckyArmor(likyniuma, 1, "likychestplate");
+    	likyleggings = new ItemChuckyArmor(likyniuma, 2, "likyleggings");
+    	likyboots = new ItemChuckyArmor(likyniuma, 3, "likyboots");
+    	GameRegistry.registerItem(likyhelmet, "LikyHelmet");
+    	GameRegistry.registerItem(likychest, "LikyChest");
+    	GameRegistry.registerItem(likyleggings, "LikyLeggings");
+    	GameRegistry.registerItem(likyboots, "LikyBoots");
+    	
+    }
+    
+    public static void loadAmorin(){
+    	
+        GameRegistry.addRecipe(new ShapedOreRecipe(icohelmet,
+        		"XXX",
+        		"X X",
+        		"   ",
+        		'X', "ingotIcosium"
+        		
+        		));        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icohelmet,
+        		"   ",
+        		"XXX",
+        		"X X",
+        		'X', "ingotIcosium"
+        		
+        		)); 
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icochest,
+        		"X X",
+        		"XXX",
+        		"XXX",
+        		'X', "ingotIcosium"
+        		
+        		));    
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icoleggings,
+        		"XXX",
+        		"X X",
+        		"X X",
+        		'X', "ingotIcosium"
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(icoboots,
+        		"X X",
+        		"X X",
+        		"   ",
+        		'X', "ingotIcosium"
+        		
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icoboots,
+        		"   ",
+        		"X X",
+        		"X X",
+        		'X', "ingotIcosium"
+        		
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosichelmet,
+        		"XXX",
+        		"X X",
+        		"   ",
+        		'X', "icosic"
+        		
+        		));        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosichelmet,
+        		"   ",
+        		"XXX",
+        		"X X",
+        		'X', "icosic"
+        		
+        		)); 
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicchest,
+        		"X X",
+        		"XXX",
+        		"XXX",
+        		'X', "icosic"
+        		
+        		));    
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicleggings,
+        		"XXX",
+        		"X X",
+        		"X X",
+        		'X', "icosic"
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicboots,
+        		"X X",
+        		"X X",
+        		"   ",
+        		'X', "icosic"
+        		
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicboots,
+        		"   ",
+        		"X X",
+        		"X X",
+        		'X', "icosic"
+        		
+        		));
+    	
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyhelmet,
+        		"XXX",
+        		"X X",
+        		"   ",
+        		'X', "ingotLikynium"
+        		
+        		));        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyhelmet,
+        		"   ",
+        		"XXX",
+        		"X X",
+        		'X', "ingotLikynium"
+        		
+        		)); 
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likychest,
+        		"X X",
+        		"XXX",
+        		"XXX",
+        		'X', "ingotLikynium"
+        		
+        		));    
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyleggings,
+        		"XXX",
+        		"X X",
+        		"X X",
+        		'X', "ingotLikynium"
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyboots,
+        		"X X",
+        		"X X",
+        		"   ",
+        		'X', "ingotLikynium"
+        		
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyboots,
+        		"   ",
+        		"X X",
+        		"X X",
+        		'X', "ingotLikynium"
+        		
+        		));
+    }
+    
+    
+}
