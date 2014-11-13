@@ -1,0 +1,103 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyHoe;
+import com.chucky.myMod.items.ItemChuckyPickaxe;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
+
+import com.chucky.myMod.MMTaMTools.*;
+
+public class MMTaMMacroHoes {
+	public static Item woodmachoe;
+	public static Item stonemachoe;
+	public static Item ironmachoe;
+	public static Item goldmachoe;
+	public static Item diamondmachoe;
+	public static Item icomachoe;
+	public static Item icosicmachoe;
+	public static Item likymachoe;
+	
+	public static void loadMacPickspre(){
+		woodmachoe = new ItemChuckyHoe(MMTaMTools.strongwood, "woodmachoe");
+		stonemachoe = new ItemChuckyHoe(MMTaMTools.strongstone, "stonemachoe");
+		ironmachoe = new ItemChuckyHoe(MMTaMTools.strongiron, "ironmachoe");
+		goldmachoe = new ItemChuckyHoe(MMTaMTools.stronggold, "goldmachoe");
+		diamondmachoe = new ItemChuckyHoe(MMTaMTools.strongdiamond, "diamondmachoe");
+		icomachoe = new ItemChuckyHoe(MMTaMTools.strongico, "icomachoe");
+		icosicmachoe = new ItemChuckyHoe(MMTaMTools.strongicosic, "icosicmachoe");
+		likymachoe = new ItemChuckyHoe(MMTaMTools.strongliky, "likymachoe");
+		GameRegistry.registerItem(woodmachoe, "WoodMacHoe");
+		GameRegistry.registerItem(stonemachoe, "StoneMacHoe");
+		GameRegistry.registerItem(goldmachoe, "GoldMacHoe");
+		GameRegistry.registerItem(ironmachoe, "IronMacHoe");
+		GameRegistry.registerItem(diamondmachoe, "DiamondMacHoe");
+		GameRegistry.registerItem(icomachoe, "IcoMacHoe");
+		GameRegistry.registerItem(icosicmachoe, "IcosicMacHoe");
+		GameRegistry.registerItem(likymachoe, "LikyMacHoe");
+		
+	}
+	
+	public static void loadMacPicksin(){
+		GameRegistry.addRecipe(new ItemStack(woodmachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongwood, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(stonemachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongstone, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(ironmachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongiron, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(goldmachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.stronggold, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(diamondmachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongdiamond, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icomachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongico, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icosicmachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongicosic, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(likymachoe), 
+				"MMM",
+				" F ",
+				"F  ",
+				'M', MMTaMItems.strongliky, 'F', MMTaMItems.faggot
+				);
+	}
+	
+	
+	
+}
