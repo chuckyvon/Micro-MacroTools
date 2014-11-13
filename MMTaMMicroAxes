@@ -1,0 +1,67 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyAxe;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
+
+public class MMTaMMiniAxes {
+	public static Item woodminiaxe;
+	public static Item stoneminiaxe;
+	public static Item ironminiaxe;
+	public static Item goldminiaxe;
+	public static Item diamondminiaxe;
+	public static Item icominiaxe;
+	public static Item icosicminiaxe;
+	public static Item likyminiaxe;
+
+	public static void loadMiniAxespre() {
+		woodminiaxe = new ItemChuckyAxe(MMTaMTools.weakwood, "woodminiaxe");
+		stoneminiaxe = new ItemChuckyAxe(MMTaMTools.weakstone, "stoneminiaxe");
+		ironminiaxe = new ItemChuckyAxe(MMTaMTools.weakiron, "ironminiaxe");
+		goldminiaxe = new ItemChuckyAxe(MMTaMTools.weakgold, "goldminiaxe");
+		diamondminiaxe = new ItemChuckyAxe(MMTaMTools.weakdiamond,
+				"diamondminiaxe");
+		icominiaxe = new ItemChuckyAxe(MMTaMTools.weakico, "icominiaxe");
+		icosicminiaxe = new ItemChuckyAxe(MMTaMTools.weakicosic, "icosicminiaxe");
+		likyminiaxe = new ItemChuckyAxe(MMTaMTools.weakliky, "likyniumminiaxe");
+		GameRegistry.registerItem(woodminiaxe, "WoodenMiniAxe");
+		GameRegistry.registerItem(stoneminiaxe, "StoneMiniAxe");
+		GameRegistry.registerItem(ironminiaxe, "IronMiniAxe");
+		GameRegistry.registerItem(goldminiaxe, "GoldMiniAxe");
+		GameRegistry.registerItem(diamondminiaxe, "DiamondMiniAxe");
+		GameRegistry.registerItem(icominiaxe, "IcosiumMiniAxe");
+		GameRegistry.registerItem(icosicminiaxe, "IcosicMiniAxe");
+		GameRegistry.registerItem(likyminiaxe, "LikyniumMiniAxe");
+	}
+
+	public static void loadMiniAxesin() {
+		GameRegistry.addShapedRecipe(new ItemStack(woodminiaxe), "YX", "YX", 'X',
+				MMTaMItems.plank, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(stoneminiaxe), "YX", "YX", 'X',
+				MMTaMItems.instone, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(ironminiaxe), "YX", "YX", 'X',
+				MMTaMItems.halfiron, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(goldminiaxe), "YX", "YX", 'X',
+				MMTaMItems.halfgold, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(diamondminiaxe), "YX", "YX", 'X',
+				MMTaMItems.halfdiamond, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(icominiaxe), "YX", "YX", 'X',
+				MMTaMItems.halfico, 'Y', Items.stick);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(icosicminiaxe), "YX", "YX", 'X',
+				MMTaMItems.halficosic, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(likyminiaxe), "YX", "YX", 'X',
+				MMTaMItems.halfliky, 'Y', MMTaMItems.icostick);
+	}
+
+}
