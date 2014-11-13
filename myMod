@@ -4,17 +4,16 @@ import com.chucky.myMod.blocks.BlockBerryPlant;
 import com.chucky.myMod.blocks.BlockIcoOre;
 import com.chucky.myMod.items.ItemBerry;
 import com.chucky.myMod.items.ItemBerrySeed;
-import com.chucky.myMod.items.ItemIcoArmor;
-import com.chucky.myMod.items.ItemIcoAxe;
+import com.chucky.myMod.items.ItemChuckyArmor;
+import com.chucky.myMod.items.ItemChuckyAxe;
 import com.chucky.myMod.items.ItemModGeneric;
-import com.chucky.myMod.items.ItemIcoHoe;
+import com.chucky.myMod.items.ItemChuckyHoe;
 import com.chucky.myMod.items.ItemIcoOre;
 import com.chucky.myMod.items.ItemIcoPaxel;
-import com.chucky.myMod.items.ItemIcoPickaxe;
-import com.chucky.myMod.items.ItemIcoShovel;
-import com.chucky.myMod.items.ItemIcoSword;
+import com.chucky.myMod.items.ItemChuckyPickaxe;
+import com.chucky.myMod.items.ItemChuckyShovel;
+import com.chucky.myMod.items.ItemChuckySword;
 import com.chucky.myMod.items.ItemKey;
-import com.chucky.myMod.items.ItemMiniPick;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -32,6 +31,7 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
+import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.SidedProxy;
@@ -40,25 +40,39 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
-@Mod(modid = myMod.MODID, version = myMod.VERSION)
-public class myMod {
+@Mod(modid = MMTaM.MODID, version = MMTaM.VERSION, guiFactory = MMTaM.GUIFACTORY)
+public class MMTaM {
+	
 	// mod details
 	public static final String MODID = "chucky_mymod";
-	public static final String VERSION = "1.0";
+	public static final String VERSION = "2.0";
+	public static final String GUIFACTORY = "com.chucky.myMod.ChuckyGuiFactory";
 
 	// event handlers
 	ChuckyEventHandler handler = new ChuckyEventHandler();
+	
+	
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		myModBlocks.loadBlockspre();
-		myModArmor.loadArmorpre();
-		myModTools.loadToolspre();
-		myModMiniPicks.loadMiniPickspre();
-		myModItems.loadItemspre();
-		myModMiniShovels.loadMiniShovelspre();
-		myModMiniAxes.loadMiniAxespre();
-		myModMacroTools.loadMacspre();
+		ChuckyConfig.loadConfig(event);
+		FMLCommonHandler.instance().bus().register(new ChuckyConfig());
+		if (ChuckyConfig.microTools){
+			MMTaMMiniPicks.loadMiniPickspre();
+			MMTaMMiniShovels.loadMiniShovelspre();
+			MMTaMMiniAxes.loadMiniAxespre();
+			MMTaMMiniHoes.loadMiniHoespre();
+		}
+		if(ChuckyConfig.macroTools){
+			MMTaMMacroPicks.loadMacPickspre();
+			MMTaMMacroShovels.loadMacShovspre();
+			MMTaMMacroAxes.loadMacAxespre();
+			MMTaMMacroHoes.loadMacPickspre();
+		}
+		MMTaMBlocks.loadBlockspre();
+		MMTaMArmor.loadArmorpre();
+		MMTaMTools.loadToolspre();
+		MMTaMItems.loadItemspre();
 
 		// event handlers
 		GameRegistry.registerWorldGenerator(handler, 0);
@@ -69,20 +83,36 @@ public class myMod {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
+		
+		if(ChuckyConfig.microTools){
+			MMTaMMiniPicks.loadMiniPicksin();
+			MMTaMMiniShovels.loadMiniShovelsin();
+			MMTaMMiniAxes.loadMiniAxesin();
+			MMTaMMiniHoes.loadMiniHoesin();
+		}
+		
+		MMTaMArmor.loadAmorin();
+		MMTaMBlocks.loadBlocksin();
+		MMTaMTools.loadToolsin();
+		MMTaMItems.loadItemsin();
+		MMTaMMacroPicks.loadMacPicksin();
+		MMTaMMacroShovels.loadMacShovsin();
+		MMTaMMacroAxes.loadMacAxesin();
+		MMTaMMacroHoes.loadMacPicksin();
 
-		myModArmor.loadAmorin();
-		myModBlocks.loadBlocksin();
-		myModTools.loadToolsin();
-		myModMiniPicks.loadMiniPicksin();
-		myModItems.loadItemsin();
-		myModMiniShovels.loadMiniShovelsin();
-		myModMiniAxes.loadMiniAxesin();
-		myModMacroTools.loadMacsin();
 		
 		ChestGenHooks.addItem(ChestGenHooks.DUNGEON_CHEST,
 				new WeightedRandomChestContent(
 						new ItemStack(Blocks.cobblestone), 25, 50, 10));
+		
+		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST,  new WeightedRandomChestContent(new ItemStack(MMTaMMiniPicks.woodminipick), 1, 1, 20));
+		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST,  new WeightedRandomChestContent(new ItemStack(MMTaMMiniPicks.stoneminipick), 1, 1, 15));
+		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST,  new WeightedRandomChestContent(new ItemStack(MMTaMItems.plank), 1, 10, 15));
+		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST,  new WeightedRandomChestContent(new ItemStack(MMTaMItems.instone), 1, 5, 25));
 
+		ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH,  new WeightedRandomChestContent(new ItemStack(MMTaMMacroPicks.woodmacpick), 1, 1, 20));
+		ChestGenHooks.addItem(ChestGenHooks.VILLAGE_BLACKSMITH,  new WeightedRandomChestContent(new ItemStack(MMTaMMacroPicks.stonemacpick), 1, 1, 20));
+		
 		ChestGenHooks.addItem(ChestGenHooks.BONUS_CHEST,
 				new WeightedRandomChestContent(new ItemStack(Blocks.torch), 2,
 						25, 10));
