@@ -1,0 +1,293 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyAxe;
+import com.chucky.myMod.items.ItemChuckyHoe;
+import com.chucky.myMod.items.ItemIcoPaxel;
+import com.chucky.myMod.items.ItemChuckyPickaxe;
+import com.chucky.myMod.items.ItemChuckyShovel;
+import com.chucky.myMod.items.ItemChuckySword;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraftforge.common.util.EnumHelper;
+import net.minecraftforge.oredict.ShapedOreRecipe;
+
+public class MMTaMTools {
+	
+    //tools
+    public static Item icopickaxe;
+    public static Item icopaxel;
+    public static Item icoaxe;
+    public static Item icohoe;
+    public static Item icoshovel;
+    public static Item icosword;
+    public static Item icosicpickaxe;
+    public static Item icosicaxe;
+    public static Item icosichoe;
+    public static Item icosicshovel;
+    public static Item icosicsword;
+    public static Item likypickaxe;
+    public static Item likyaxe;
+    public static Item likyhoe;
+    public static Item likyshovel;
+    public static Item likysword;
+    
+    
+    //materials
+    public static ToolMaterial icosium = EnumHelper.addToolMaterial("icosium", 3, 1000, 9.5F, 3.5F, 10);
+    public static ToolMaterial icos = EnumHelper.addToolMaterial("icosic", 3, 2000, 11F, 5F, 15);
+    public static ToolMaterial likynium = EnumHelper.addToolMaterial("likynium", 4, 4000, 15F, 8F, 20);
+    
+    public static int mDM = ChuckyConfig.macroDurabilityMultiplier;
+    public static int mDP = ChuckyConfig.microDurabilityPenalty;
+    public static float mSD = ChuckyConfig.macroSpeedDecrease;
+    public static float mSI = ChuckyConfig.microSpeedIncrease;
+    public static float mDB = ChuckyConfig.macroDamageBuff;
+    public static float mDD = ChuckyConfig.microDamageDebuff;
+    
+    public static float wAS = ((2.0F - mSD) <= 0) ? (0.3F) : (2.0F - (mSD + (2.0F/10)));
+    public static float sAS = ((4.0F - mSD) <= 0) ? (0.3F) : (4.0F - (mSD + (4.0F/10)));
+    public static float iAS = ((6.0F - mSD) <= 0) ? (0.3F) : (6.0F - (mSD + (6.0F/10)));
+    public static float gAS = ((12.0F - mSD) <= 0) ? (0.3F) : (12.0F - (mSD + (12.0F/10)));
+    public static float dAS = ((8.0F - mSD) <= 0) ? (0.3F) : (8.0F - (mSD + (8.0F/10)));
+    public static float imAS = ((9.5F - mSD) <= 0) ? (0.3F) : (9.5F - (mSD + (9.5F/10)));
+    public static float icAS = ((11.0F - mSD) <= 0) ? (0.3F) : (11.0F - (mSD + (11.0F/10)));
+    public static float lAS = ((15.0F - mSD) <= 0) ? (0.3F) : (15.0F - (mSD + (15.0F/10)));
+    
+    
+    public static float sAD = (1.0F - mDD) <= 0 ? (0.0F) : (1.0F - mDD);
+    public static float iAD = (2.0F - mDD) <= 0 ? (0.0F) : (2.0F - mDD);
+    public static float dAD = (3.0F - mDD) <= 0 ? (0.0F) : (3.0F - mDD);
+    public static float imAD = (3.5F - mDD) <= 0 ? (0.0F) : (3.5F - mDD);
+    public static float icAD = (5.0F - mDD) <= 0 ? (0.0F) : (5.0F - mDD);
+    public static float lAD = (8.0F - mDD) <= 0 ? (0.0F) : (8.0F - mDD);
+    
+    public static ToolMaterial strongwood = EnumHelper.addToolMaterial("strongwood", 0, (59*mDM), (wAS), 0.0F + mDB, 15);
+    public static ToolMaterial strongstone = EnumHelper.addToolMaterial("strongstone", 1, (131*mDM), (sAS), 1.0F + mDB, 5);
+    public static ToolMaterial strongiron = EnumHelper.addToolMaterial("strongiron", 2, (300*mDM), (iAS), 2.0F + mDB, 14);
+    public static ToolMaterial stronggold = EnumHelper.addToolMaterial("stronggold", 0, (64*mDM), (gAS), 0.0F + mDB, 22);
+    public static ToolMaterial strongdiamond = EnumHelper.addToolMaterial("strongdiamond", 3, (1751*mDM), (dAS), 3.0F + mDB, 10);
+    public static ToolMaterial strongico = EnumHelper.addToolMaterial("strongico", 3, (1050*mDM), (imAS), 3.5F + mDB, 10);
+    public static ToolMaterial strongicosic = EnumHelper.addToolMaterial("strongicosium", 3, (2000*mDM), (icAS), 5F + mDB, 15);
+    public static ToolMaterial strongliky = EnumHelper.addToolMaterial("strongliky", 4, (4000*mDM), (lAS), 8F + mDB, 20);
+    
+    public static ToolMaterial weakwood = EnumHelper.addToolMaterial("weakwood", 0, (59/mDP), (2.0F + mSI), -1.0F, 15);
+    public static ToolMaterial weakstone = EnumHelper.addToolMaterial("weakstone", 1, (131/mDP), (4.0F + mSI), sAD, 5);
+    public static ToolMaterial weakiron = EnumHelper.addToolMaterial("weakiron", 2, (250/mDP), (6.0F + mSI), iAD, 14);
+    public static ToolMaterial weakgold = EnumHelper.addToolMaterial("weakgold", 0, (32/mDP), (12.0F + mSI), 0.0F, 22);
+    public static ToolMaterial weakdiamond = EnumHelper.addToolMaterial("weakdiamond", 3, (1561/mDP), (8.0F + mSI), dAD, 10);
+    public static ToolMaterial weakico = EnumHelper.addToolMaterial("weakico", 3, (1000/mDP), (9.5F + mSI), imAD, 10);
+    public static ToolMaterial weakicosic = EnumHelper.addToolMaterial("weakicosic", 3, (2000/mDP), (11F + mSI), icAD, 15);
+    public static ToolMaterial weakliky = EnumHelper.addToolMaterial("weakliky", 4, (4000/mDP), (15F + mSI), lAD, 20);
+    //public static TOolMaterial blah = EnumHelper.addToolMaterial(name, harvestLevel, maxUses, efficiency, damage, enchantability)
+    
+    public static void loadToolspre(){
+    	
+    	//tools
+    	icopickaxe = new ItemChuckyPickaxe(icosium, "icopickaxe");
+    	icopaxel = new ItemIcoPaxel(icosium, "icopaxel");
+    	icoaxe = new ItemChuckyAxe(icosium, "icoaxe");
+    	icohoe = new ItemChuckyHoe(icosium, "icohoe");
+    	icoshovel = new ItemChuckyShovel(icosium, "icoshovel");
+    	icosword = new ItemChuckySword(icosium, "icosword");
+    	GameRegistry.registerItem(icopickaxe, "IcoPickaxe");
+    	GameRegistry.registerItem(icopaxel, "IcoPaxel");
+    	GameRegistry.registerItem(icoaxe, "IcoAxe");
+    	GameRegistry.registerItem(icohoe, "IcoHoe");
+    	GameRegistry.registerItem(icoshovel, "IcoShovel");
+    	GameRegistry.registerItem(icosword, "IcoSword");
+    	
+    	likypickaxe = new ItemChuckyPickaxe(likynium, "likypickaxe");
+    	likyaxe = new ItemChuckyAxe(likynium, "likyaxe");
+    	likyhoe = new ItemChuckyHoe(likynium, "likyhoe");
+    	likyshovel = new ItemChuckyShovel(likynium, "likyshovel");
+    	likysword = new ItemChuckySword(likynium, "likysword");
+    	GameRegistry.registerItem(likypickaxe, "LikyPickaxe");
+    	GameRegistry.registerItem(likyaxe, "likyAxe");
+    	GameRegistry.registerItem(likyhoe, "likyHoe");
+    	GameRegistry.registerItem(likyshovel, "likyShovel");
+    	GameRegistry.registerItem(likysword, "likySword");
+    	
+    	icosicpickaxe = new ItemChuckyPickaxe(icos, "icosicpickaxe");
+    	icosicaxe = new ItemChuckyAxe(icos, "icosicaxe");
+    	icosichoe = new ItemChuckyHoe(icos, "icosichoe");
+    	icosicshovel = new ItemChuckyShovel(icos, "icosicshovel");
+    	icosicsword = new ItemChuckySword(icos, "icosicsword");
+    	GameRegistry.registerItem(icosicpickaxe, "IcosicPickaxe");
+    	GameRegistry.registerItem(icosicaxe, "IcosicAxe");
+    	GameRegistry.registerItem(icosichoe, "IcosicHoe");
+    	GameRegistry.registerItem(icosicshovel, "IcosicShovel");
+    	GameRegistry.registerItem(icosicsword, "IcosicSword");
+    }
+    
+    public static void loadToolsin(){
+        GameRegistry.addRecipe(new ShapedOreRecipe(icopickaxe,
+        		"XXX",
+        		" Y ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icopaxel,
+        		"XXX",
+        		"XY ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icoaxe,
+        		"XX ",
+        		"XY ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icoaxe,
+        		" XX",
+        		" YX",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icohoe,
+        		" XX",
+        		" Y ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(icohoe,
+        		"XX ",
+        		" Y ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(icoshovel,
+        		" X ",
+        		" Y ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		
+        		));
+        
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosword,
+        		" X ",
+        		" X ",
+        		" Y ",
+        		'X', "icosium", 'Y', Items.stick
+        		
+        		));
+        
+
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likypickaxe,
+        		"XXX",
+        		" Y ",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyaxe,
+        		"XX ",
+        		"XY ",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyaxe,
+        		" XX",
+        		" YX",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyhoe,
+        		" XX",
+        		" Y ",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyhoe,
+        		"XX ",
+        		" Y ",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likyshovel,
+        		" X ",
+        		" Y ",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(likysword,
+        		" X ",
+        		" X ",
+        		" Y ",
+        		'X', "ingotLikynium", 'Y', MMTaMItems.icostick
+        		));
+        
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicpickaxe,
+        		"XXX",
+        		" Y ",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicaxe,
+        		"XX ",
+        		"XY ",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicaxe,
+        		" XX",
+        		" YX",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		
+        		));
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosichoe,
+        		" XX",
+        		" Y ",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosichoe,
+        		"XX ",
+        		" Y ",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		
+        		));
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicshovel,
+        		" X ",
+        		" Y ",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		
+        		));
+        
+        
+        GameRegistry.addRecipe(new ShapedOreRecipe(icosicsword,
+        		" X ",
+        		" X ",
+        		" Y ",
+        		'X', "icosic", 'Y', Items.stick
+        		
+        		));
+    	
+    }
+	
+}
