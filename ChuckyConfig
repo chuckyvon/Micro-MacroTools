@@ -1,0 +1,70 @@
+package com.chucky.myMod;
+
+
+
+import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.client.event.ConfigChangedEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+
+public class ChuckyConfig {
+	public static Configuration config;
+	public static boolean spawnCotton = true;
+	public static boolean spawnBerry = true;
+	public static boolean spawnNetherIcosium = true;
+	public static boolean chestSpawns = true;
+	public static boolean microTools = true;
+	public static boolean macroTools = true;
+	public static int macroDurabilityMultiplier = 5;
+	public static int microDurabilityPenalty = 2;
+	public static int icosiumMaxVeinSize = 6;
+	public static int icosiumChancesToSpawn = 7;
+	public static int icosicgemMaxVeinSize = 4;
+	public static int icosicgemChancesToSpawn = 15;
+	public static int likyIngotAmount = 1;
+	public static float macroSpeedDecrease = .5F;
+	public static float microSpeedIncrease = .5F;
+	public static float macroDamageBuff = 1.5F;
+	public static float microDamageDebuff = 1.5F;
+	
+	public static void loadConfig(FMLPreInitializationEvent event){
+		if(config == null){
+			config = new Configuration(event.getSuggestedConfigurationFile());
+			config.load();
+			loadConfig();
+		}
+	}
+	
+	@SubscribeEvent
+	public void onConfigEvent(ConfigChangedEvent.OnConfigChangedEvent event){
+		if(event.modID.equals(MMTaM.MODID)){
+			loadConfig();
+		}
+		
+	}
+	
+	private static void loadConfig(){
+		spawnCotton = config.get(Configuration.CATEGORY_GENERAL, "Cotton Plants", true, "Should cotton plants generate").getBoolean(true);
+		spawnBerry = config.get(Configuration.CATEGORY_GENERAL, "Berry Plants", true, "Should berry plants generate").getBoolean(true);
+		spawnNetherIcosium = config.get(Configuration.CATEGORY_GENERAL, "Nether Icosium Ore", true, "Should nether icosium ore generate").getBoolean(true);
+		chestSpawns = config.get(Configuration.CATEGORY_GENERAL, "Modded Items In Generated Chests", true, "Should items in this mod be generated in chests").getBoolean(true);
+		microTools = config.get(Configuration.CATEGORY_GENERAL, "Micro Tools", true, "Enable/Disable micro tools").getBoolean(true);
+		macroTools = config.get(Configuration.CATEGORY_GENERAL, "Macro Tools", true, "Enable/Disable macro tools").getBoolean(true);
+		macroDurabilityMultiplier = config.getInt("Macro Durability Multiplier", Configuration.CATEGORY_GENERAL, 5, 1, 10, "Normal material durability gets multiplied by this");
+		microDurabilityPenalty = config.getInt("Micro Durability Penalty", Configuration.CATEGORY_GENERAL, 2, 1, 10, "Normal material durability gets divided by this.");
+		icosiumMaxVeinSize = config.getInt("Icosium Ore Max Vein Size", Configuration.CATEGORY_GENERAL, 6, 1, 1000, "Max number of ore to be spawned per vein");
+		icosiumChancesToSpawn = config.getInt("Icosium Ore Chances To Spawn", Configuration.CATEGORY_GENERAL, 7, 1, 1000, "How many chances icosium has to spawn per chunk");
+		icosicgemMaxVeinSize = config.getInt("Icosic Gem Ore Max Vein Size", Configuration.CATEGORY_GENERAL, 4, 1, 1000, "Max number of ore to be spawned per vein");
+		icosicgemChancesToSpawn = config.getInt("Icosic Gem Ore Chances To Spawn", Configuration.CATEGORY_GENERAL, 15, 1, 1000, "How many chances icosic gem ore has to spawn per chunk");
+		likyIngotAmount = config.getInt("Likynium Ingot Amount", Configuration.CATEGORY_GENERAL, 1, 1, 100, "The amount of likynium you get from the likynium ingot recipe");
+		macroSpeedDecrease = config.getFloat("Macro Tools Speed Decrease", Configuration.CATEGORY_GENERAL, 1.5F, 0.0F, 10F, "Default speed for wood is 2.0 and for gold it is 12.0");
+		microSpeedIncrease = config.getFloat("Micro Tools Speed Increase", Configuration.CATEGORY_GENERAL, 1.5F, 0.0F, 10.0F, "Default speed for wood is 2.0 and for gold it is 12.0");
+		macroDamageBuff = config.getFloat("Macro Tools Damage Buff", Configuration.CATEGORY_GENERAL, 1.5F, 0.0F, 10F, "Is added to material damage");
+		microDamageDebuff = config.getFloat("Micro Tools Damage Debuff", Configuration.CATEGORY_GENERAL, 1.5F, 0.0F, 10.0F, "Subtracted from material damage");
+		if(config.hasChanged()){
+			config.save();
+		}
+	}
+	
+	
+}
