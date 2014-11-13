@@ -1,0 +1,24 @@
+package com.chucky.myMod;
+
+import java.util.List;
+
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraftforge.common.config.ConfigElement;
+import net.minecraftforge.common.config.Configuration;
+import cpw.mods.fml.client.config.GuiConfig;
+import cpw.mods.fml.client.config.IConfigElement;
+
+public class ChuckyConfGui extends GuiConfig{
+
+	public ChuckyConfGui(GuiScreen guiscreen){
+		super(guiscreen,
+				new ConfigElement(ChuckyConfig.config.getCategory(Configuration.CATEGORY_GENERAL)).getChildElements(),
+				MMTaM.MODID,
+				false,
+				true,
+				"Micro-Tools, Macro-Tools, and More! Config"
+				);
+		
+	}
+
+}
