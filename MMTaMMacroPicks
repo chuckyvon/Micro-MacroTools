@@ -1,0 +1,102 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyPickaxe;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
+
+import com.chucky.myMod.MMTaMTools.*;
+
+public class MMTaMMacroPicks {
+	public static Item woodmacpick;
+	public static Item stonemacpick;
+	public static Item ironmacpick;
+	public static Item goldmacpick;
+	public static Item diamondmacpick;
+	public static Item icomacpick;
+	public static Item icosicmacpic;
+	public static Item likymacpick;
+	
+	public static void loadMacPickspre(){
+		woodmacpick = new ItemChuckyPickaxe(MMTaMTools.strongwood, "woodmacpick");
+		stonemacpick = new ItemChuckyPickaxe(MMTaMTools.strongstone, "stonemacpick");
+		ironmacpick = new ItemChuckyPickaxe(MMTaMTools.strongiron, "ironmacpick");
+		goldmacpick = new ItemChuckyPickaxe(MMTaMTools.stronggold, "goldmacpick");
+		diamondmacpick = new ItemChuckyPickaxe(MMTaMTools.strongdiamond, "diamondmacpick");
+		icomacpick = new ItemChuckyPickaxe(MMTaMTools.strongico, "icomacpick");
+		icosicmacpic = new ItemChuckyPickaxe(MMTaMTools.strongicosic, "icosicmacpic");
+		likymacpick = new ItemChuckyPickaxe(MMTaMTools.strongliky, "likymacpick");
+		GameRegistry.registerItem(woodmacpick, "WoodMacPick");
+		GameRegistry.registerItem(stonemacpick, "StoneMacPick");
+		GameRegistry.registerItem(goldmacpick, "GoldMacPick");
+		GameRegistry.registerItem(ironmacpick, "IronMacPick");
+		GameRegistry.registerItem(diamondmacpick, "DiamondMacPick");
+		GameRegistry.registerItem(icomacpick, "IcoMacPick");
+		GameRegistry.registerItem(icosicmacpic, "IcosicMacPick");
+		GameRegistry.registerItem(likymacpick, "LikyMacPick");
+		
+	}
+	
+	public static void loadMacPicksin(){
+		GameRegistry.addRecipe(new ItemStack(woodmacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongwood, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(stonemacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongstone, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(ironmacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongiron, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(goldmacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.stronggold, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(diamondmacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongdiamond, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icomacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongico, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icosicmacpic), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongicosic, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(likymacpick), 
+				"MMM",
+				" FM",
+				"F M",
+				'M', MMTaMItems.strongliky, 'F', MMTaMItems.faggot
+				);
+	}
+	
+	
+	
+}
