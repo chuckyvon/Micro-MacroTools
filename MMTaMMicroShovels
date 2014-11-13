@@ -1,0 +1,71 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyShovel;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemStack;
+
+public class MMTaMMiniShovels {
+	public static Item woodminishovel;
+	public static Item stoneminishovel;
+	public static Item ironminishovel;
+	public static Item goldminishovel;
+	public static Item diamondminishovel;
+	public static Item icominishovel;
+	public static Item icosicminishovel;
+	public static Item likyminishovel;
+
+	public static void loadMiniShovelspre() {
+		woodminishovel = new ItemChuckyShovel(MMTaMTools.weakwood, "woodminishovel");
+		stoneminishovel = new ItemChuckyShovel(MMTaMTools.weakstone,
+				"stoneminishovel");
+		ironminishovel = new ItemChuckyShovel(MMTaMTools.weakiron, "ironminishovel");
+		goldminishovel = new ItemChuckyShovel(MMTaMTools.weakgold, "goldminishovel");
+		diamondminishovel = new ItemChuckyShovel(MMTaMTools.weakdiamond,
+				"diamondminishovel");
+		icominishovel = new ItemChuckyShovel(MMTaMTools.weakico, "icominishovel");
+		icosicminishovel = new ItemChuckyShovel(MMTaMTools.weakicosic, "icosicminishov");
+		likyminishovel = new ItemChuckyShovel(MMTaMTools.weakliky,
+				"likyminishovel");
+
+		GameRegistry.registerItem(woodminishovel, "WoodMiniShovel");
+		GameRegistry.registerItem(stoneminishovel, "StoneMiniShovel");
+		GameRegistry.registerItem(ironminishovel, "IronMiniShovel");
+		GameRegistry.registerItem(goldminishovel, "GoldenMiniShovel");
+		GameRegistry.registerItem(diamondminishovel, "DiamondMiniShovel");
+		GameRegistry.registerItem(icominishovel, "IcosiumMiniShovel");
+		GameRegistry.registerItem(icosicminishovel, "IcosicMiniShovel");
+		GameRegistry.registerItem(likyminishovel, "LikyniumMiniShovel");
+	}
+
+	public static void loadMiniShovelsin() {
+		GameRegistry.addShapedRecipe(new ItemStack(woodminishovel), "P ", "S ",
+				'S', Items.stick, 'P', MMTaMItems.plank);
+
+		GameRegistry.addShapedRecipe(new ItemStack(stoneminishovel), "I ",
+				"S ", 'I', MMTaMItems.instone, 'S', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(ironminishovel), "H ", "S ",
+				'H', MMTaMItems.halfiron, 'S', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(goldminishovel), "G ", "S ",
+				'G', MMTaMItems.halfgold, 'S', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(diamondminishovel), "D ",
+				"S ", 'D', MMTaMItems.halfdiamond, 'S', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(icominishovel), "I ", "S ",
+				'I', MMTaMItems.halfico, 'S', Items.stick);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(icosicminishovel), "I ", "S ",
+				'I', MMTaMItems.halficosic, 'S', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(likyminishovel), "L ", "S ",
+				'L', MMTaMItems.halfliky, 'S', Items.stick);
+
+	}
+
+}
