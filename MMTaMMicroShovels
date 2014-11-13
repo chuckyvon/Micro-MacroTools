@@ -1,0 +1,69 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyPickaxe;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
+
+public class MMTaMMiniPicks {
+    //minipicks
+    public static Item woodminipick;
+    public static Item stoneminipick;
+    public static Item ironminipick;
+    public static Item goldminipick;
+    public static Item diamondminipick;
+    public static Item icominipick;
+    public static Item icosicminipic;
+    public static Item likyminipick;
+    
+    public static void loadMiniPickspre(){
+    	
+    	//minipicks
+    	woodminipick = new ItemChuckyPickaxe(MMTaMTools.weakwood,  "woodminipick");
+    	stoneminipick = new ItemChuckyPickaxe(MMTaMTools.weakstone, "stoneminipick");
+    	ironminipick = new ItemChuckyPickaxe(MMTaMTools.weakiron, "ironminipick");
+    	goldminipick = new ItemChuckyPickaxe(MMTaMTools.weakgold, "goldminipick");
+    	diamondminipick = new ItemChuckyPickaxe(MMTaMTools.weakdiamond, "diamondminipick");
+    	icominipick = new ItemChuckyPickaxe(MMTaMTools.weakico, "icominipick");
+    	icosicminipic = new ItemChuckyPickaxe(MMTaMTools.weakicosic, "icosicminipic");
+    	likyminipick = new ItemChuckyPickaxe(MMTaMTools.weakliky, "likyniumminipick");
+    	GameRegistry.registerItem(woodminipick, "WoodenMiniPick");
+    	GameRegistry.registerItem(stoneminipick, "StoneMiniPick");
+    	GameRegistry.registerItem(ironminipick, "IronMiniPick");
+    	GameRegistry.registerItem(goldminipick, "GoldMiniPick");
+    	GameRegistry.registerItem(diamondminipick, "DiamondMiniPick");
+    	GameRegistry.registerItem(icominipick, "IcosiumMiniPick");
+    	GameRegistry.registerItem(icosicminipic, "IcosicMiniPic");
+    	GameRegistry.registerItem(likyminipick, "LikyniumMiniPick");
+    }
+    
+	public static void loadMiniPicksin() {
+		GameRegistry.addShapedRecipe(new ItemStack(woodminipick), "XX", "YX", 'X',
+				MMTaMItems.plank, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(stoneminipick), "XX", "YX", 'X',
+				MMTaMItems.instone, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(ironminipick), "XX", "YX", 'X',
+				MMTaMItems.halfiron, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(goldminipick), "XX", "YX", 'X',
+				MMTaMItems.halfgold, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(diamondminipick), "XX", "YX", 'X',
+				MMTaMItems.halfdiamond, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(icominipick), "XX", "YX", 'X',
+				MMTaMItems.halfico, 'Y', Items.stick);
+		
+		GameRegistry.addShapedRecipe(new ItemStack(icosicminipic), "XX", "YX", 'X',
+				MMTaMItems.halficosic, 'Y', Items.stick);
+
+		GameRegistry.addShapedRecipe(new ItemStack(likyminipick), "XX", "YX", 'X',
+				MMTaMItems.halfliky, 'Y', MMTaMItems.icostick);
+    }
+}
