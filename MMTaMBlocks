@@ -1,0 +1,41 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.blocks.BlockBerryPlant;
+import com.chucky.myMod.blocks.BlockCottonPlant;
+import com.chucky.myMod.blocks.BlockIcoOre;
+import com.chucky.myMod.blocks.BlockIcosicOre;
+import com.chucky.myMod.items.ItemIcoOre;
+
+import cpw.mods.fml.common.Mod.EventHandler;
+import cpw.mods.fml.common.event.FMLInitializationEvent;
+import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+
+public class MMTaMBlocks {
+
+	public static Block icosiumOre;
+	public static Block icosicOre;
+	public static Block berryplant;
+	public static Block cottonplant;
+
+	public static void loadBlockspre() {
+		icosiumOre = new BlockIcoOre();
+		icosicOre = new BlockIcosicOre();
+		berryplant = new BlockBerryPlant();
+		cottonplant = new BlockCottonPlant();
+		GameRegistry.registerBlock(icosiumOre, ItemIcoOre.class, "IcoOre");
+		GameRegistry.registerBlock(icosicOre, "IcosicGemOre");
+		GameRegistry.registerBlock(berryplant, "BerryPlant");
+		GameRegistry.registerBlock(cottonplant, "CottonPlant");
+	}
+
+	public static void loadBlocksin() {
+		GameRegistry.addRecipe(new ItemStack(icosiumOre, 8, 1), "SSS", "SIS",
+				"SSS", 'S', Blocks.stonebrick, 'I', MMTaMItems.icogem);
+
+	}
+
+}
