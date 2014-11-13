@@ -1,0 +1,99 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyShovel;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
+
+public class MMTaMMacroShovels {
+	public static Item woodmacshov;
+	public static Item stonemacshov;
+	public static Item ironmacshov;
+	public static Item goldmacshov;
+	public static Item diamondmacshov;
+	public static Item icomacshov;
+	public static Item icosicmacshov;
+	public static Item likymacshov;
+	
+	public static void loadMacShovspre(){
+		woodmacshov = new ItemChuckyShovel(MMTaMTools.strongwood, "woodmacshov");
+		stonemacshov = new ItemChuckyShovel(MMTaMTools.strongstone, "stonemacshov");
+		ironmacshov = new ItemChuckyShovel(MMTaMTools.strongiron, "ironmacshov");
+		goldmacshov = new ItemChuckyShovel(MMTaMTools.stronggold, "goldmacshov");
+		diamondmacshov = new ItemChuckyShovel(MMTaMTools.strongdiamond, "diamondmacshov");
+		icomacshov = new ItemChuckyShovel(MMTaMTools.strongico, "icomacshov");
+		icosicmacshov = new ItemChuckyShovel(MMTaMTools.strongicosic, "icosicmacshov");
+		likymacshov = new ItemChuckyShovel(MMTaMTools.strongliky, "likymacshov");
+		GameRegistry.registerItem(woodmacshov, "WoodMacShov");
+		GameRegistry.registerItem(stonemacshov, "StoneMacShov");
+		GameRegistry.registerItem(goldmacshov, "GoldMacShov");
+		GameRegistry.registerItem(ironmacshov, "IronMacShov");
+		GameRegistry.registerItem(diamondmacshov, "DiamondMacShov");
+		GameRegistry.registerItem(icomacshov, "IcoMacShov");
+		GameRegistry.registerItem(icosicmacshov, "IcosicMacShov");
+		GameRegistry.registerItem(likymacshov, "LikyMacShov");
+	}
+	
+	public static void loadMacShovsin(){
+		GameRegistry.addRecipe(new ItemStack(woodmacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongwood, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(stonemacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongstone, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(ironmacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongiron, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(goldmacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.stronggold, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(diamondmacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongdiamond, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icomacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongico, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icosicmacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongicosic, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(likymacshov), 
+				" MM",
+				" FM",
+				"F  ",
+				'M', MMTaMItems.strongliky, 'F', MMTaMItems.faggot
+				);
+		
+	}
+	
+	
+}
