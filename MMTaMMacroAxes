@@ -1,0 +1,100 @@
+package com.chucky.myMod;
+
+import com.chucky.myMod.items.ItemChuckyAxe;
+import com.chucky.myMod.items.ItemChuckyShovel;
+
+import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.Item.ToolMaterial;
+
+public class MMTaMMacroAxes {
+	public static Item woodmacaxe;
+	public static Item stonemacaxe;
+	public static Item ironmacaxe;
+	public static Item goldmacaxe;
+	public static Item diamondmacaxe;
+	public static Item icomacaxe;
+	public static Item icosicmacaxe;
+	public static Item likymacaxe;
+	
+	public static void loadMacAxespre(){
+		woodmacaxe = new ItemChuckyAxe(MMTaMTools.strongwood, "woodmacaxe");
+		stonemacaxe = new ItemChuckyAxe(MMTaMTools.strongstone, "stonemacaxe");
+		ironmacaxe = new ItemChuckyAxe(MMTaMTools.strongiron, "ironmacaxe");
+		goldmacaxe = new ItemChuckyAxe(MMTaMTools.stronggold, "goldmacaxe");
+		diamondmacaxe = new ItemChuckyAxe(MMTaMTools.strongdiamond, "diamondmacaxe");
+		icomacaxe = new ItemChuckyAxe(MMTaMTools.strongico, "icomacaxe");
+		icosicmacaxe = new ItemChuckyAxe(MMTaMTools.strongicosic, "isosicmacaxe");
+		likymacaxe = new ItemChuckyAxe(MMTaMTools.strongliky, "likymacaxe");
+		GameRegistry.registerItem(woodmacaxe, "WoodMacAxe");
+		GameRegistry.registerItem(stonemacaxe, "StoneMacAxe");
+		GameRegistry.registerItem(goldmacaxe, "GoldMacAxe");
+		GameRegistry.registerItem(ironmacaxe, "IronMacAxe");
+		GameRegistry.registerItem(diamondmacaxe, "DiamondMacAxe");
+		GameRegistry.registerItem(icomacaxe, "IcoMacAxe");
+		GameRegistry.registerItem(icosicmacaxe, "IcosicMacAxe");
+		GameRegistry.registerItem(likymacaxe, "LikyMacAxe");
+	}
+	
+	public static void loadMacAxesin(){
+		GameRegistry.addRecipe(new ItemStack(woodmacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongwood, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(stonemacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongstone, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(ironmacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongiron, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(goldmacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.stronggold, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(diamondmacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongdiamond, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icomacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongico, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(icosicmacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongicosic, 'F', MMTaMItems.faggot
+				);
+		
+		GameRegistry.addRecipe(new ItemStack(likymacaxe), 
+				"MMM",
+				"MFM",
+				"F  ",
+				'M', MMTaMItems.strongliky, 'F', MMTaMItems.faggot
+				);
+		
+	}
+	
+	
+}
